@@ -265,76 +265,120 @@
     margin: 0 40px;
   }
 
-  /* ─── FOOTER ─── */
+  
+  /* ══════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════ */
   footer {
-    background: var(--dark);
-    padding: 48px 40px;
+    background: var(--forest);
+    padding: 64px 5vw 28px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+ 
+  .footer-top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-
-  .footer-brand {}
-  .footer-brand .fb-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
+ 
   .footer-brand p {
-    font-size: 13px;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.7;
-    max-width: 280px;
+    color: rgba(255,255,255,0.36);
+    font-size: 13.5px; line-height: 1.8;
+    margin-top: 16px; max-width: 260px;
   }
-
-  .footer-links {}
-  .footer-links h4 {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 14px;
+ 
+  .footer-col h4 {
+    color: rgba(255,255,255,0.88);
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 600;
+    margin-bottom: 18px;
   }
-  .footer-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.36);
+    font-size: 13.5px; text-decoration: none;
+    margin-bottom: 10px; transition: color 0.2s;
   }
-  .footer-links ul li a {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.15s;
-  }
-  .footer-links ul li a:hover { color: white; }
-
+  .footer-col a:hover { color: var(--green-light); }
+ 
   .footer-bottom {
-    background: var(--dark);
-    border-top: 1px solid var(--border-dark);
-    padding: 18px 40px;
-    text-align: center;
+    padding-top: 26px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+    color: rgba(255,255,255,0.2); font-size: 12px;
   }
-  .footer-bottom p {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-weight: 300;
+ 
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .page-content { padding: 60px 5vw; }
+  }
+}
+</style>
+</head>
+<body>
+</div>
+  
+ 
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+ 
+      <!-- Brand -->
+     <div class="footer-brand">
+  <a href="https://striveptlv.com" class="nav-logo">
+    <img src="https://striveptlv.com/logo.png" alt="STRIVE PT Logo" class="logo-img">
+    <div>
+      <div class="logo-text">STRIVE</div>
+      <div class="logo-sub">Physical Therapy · Las Vegas</div>
+    </div>
+  </a>
+  <p>Stroke &amp; balance physical therapy delivered 1-on-1 in your Las Vegas home. Servicing Las Vegas in May 2026.</p>
+</div>
 
-  @media (max-width: 640px) {
-    nav { padding: 0 20px; }
-    .hero { padding: 60px 24px 68px; }
-    .band { padding: 22px 24px; }
-    .page-body { padding: 52px 24px 72px; }
-    footer { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
-    .footer-bottom { padding: 18px 24px; }
-    .divider { margin: 0 24px; }
-  }
+      <!-- Practice -->
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <a href="https://striveptlv.com/#difference">Why 1-on-1 PT</a>
+        <a href="https://striveptlv.com/#providers">Our Team</a>
+        <a href="https://striveptlv.com/#pricing">Payment Options</a>
+        <a href="https://striveptlv.com/#faq">FAQ</a>
+        <a href="https://striveptlv.com/#contact">Medicare Waitlist</a>
+        <a href="https://striveptlv.com/moneymanagement/" target="_blank" rel="noopener">Patient Tools</a>
+      </div>
+ 
+      <!-- Las Vegas -->
+      <div class="footer-col">
+        <h4>Las Vegas</h4>
+        <a href="https://striveptlv.com/#booking">Book via JaneApp</a>
+        <a href="https://striveptlv.com/#contact">Contact Us</a>
+        <a href="https://striveptlv.com/#contact">Skye Canyon / Centennial Hills</a>
+        <a href="https://striveptlv.com/#contact">Summerlin</a>
+        <a href="https://striveptlv.com/#contact">Spring Valley</a>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-bottom">
+      <span>&copy; 2026 STRIVE Physical Therapy &middot; Las Vegas, NV &middot; All rights reserved.</span>
+      <span>Licensed Physical Therapists &middot; State of Nevada</span>
+    </div>
+  </div>
+</footer>
+ 
+ 
 
 </style>
 </head>
