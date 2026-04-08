@@ -843,5 +843,231 @@
   <p>© 2026 STRIVE Physical Therapy · Las Vegas, NV · All rights reserved. &nbsp;·&nbsp; Licensed Physical Therapists · State of Nevada</p>
 </div>
 
+
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f6fbf7;
+    color: #0d2118;
+    overflow-x: hidden;
+    /* Push body content below fixed nav */
+    padding-top: 70px;
+  }
+ 
+  /* ── DESIGN TOKENS ── */
+  :root {
+    --forest:      #0d2118;
+    --green:       #1e8a4a;
+    --green-light: #2faa5e;
+    --green-pale:  #e8f5ee;
+    --gold:        #c9973a;
+    --cream:       #f2f7f4;
+    --warm-white:  #f6fbf7;
+    --text-dark:   #0d2118;
+    --text-mid:    #2e5040;
+    --text-light:  #5a7a68;
+  }
+ 
+  /* ══════════════════════════════════════
+     NAV
+  ══════════════════════════════════════ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+  }
+ 
+  /* Logo */
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    text-decoration: none;
+  }
+  ./* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .logo-img {
+  width: 50px; height: 50px;
+  object-fit: contain; flex-shrink: 0;
+}
+.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
+.logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--green-light); }
+.nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-book:hover { background: var(--green-light) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
+  /* MOBILE MENU */
+  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: white;
+    line-height: 1.1; letter-spacing: 2px;
+  }
+  .logo-sub {
+    font-size: 9.5px; font-family: 'DM Sans', sans-serif;
+    color: var(--green-light); font-weight: 300;
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+ 
+  /* Desktop links */
+  .nav-links {
+    display: flex; align-items: center; gap: 26px;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72); text-decoration: none;
+    font-size: 13.5px; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-book {
+    background: var(--green) !important;
+    color: white !important;
+    padding: 9px 22px; border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-book:hover { background: var(--green-light) !important; }
+ 
+  /* Hamburger */
+  .nav-toggle {
+    display: none; flex-direction: column;
+    gap: 5px; cursor: pointer;
+  }
+  .nav-toggle span {
+    width: 22px; height: 2px;
+    background: white; border-radius: 2px;
+    transition: 0.3s;
+  }
+ 
+  /* ══════════════════════════════════════
+     MOBILE MENU
+  ══════════════════════════════════════ */
+  .mobile-menu {
+    display: none; flex-direction: column;
+    position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: var(--forest); z-index: 199;
+    padding: 32px 6vw;
+    overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 18px; font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mob-book {
+    background: var(--green); color: white !important;
+    text-align: center; border-radius: 2px;
+    padding: 15px !important; margin-top: 24px;
+    border: none !important; font-size: 16px;
+  }
+ 
+  /* ══════════════════════════════════════
+     PAGE CONTENT AREA (demo only)
+  ══════════════════════════════════════ */
+  .page-content {
+    min-height: 60vh;
+    display: flex; align-items: left; justify-content: left;
+    flex-direction: column; gap: 20px;
+    padding: 80px 5vw;
+    text-align: left;
+  }
+  .page-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300; color: var(--text-dark); line-height: 1.2;
+  }
+  .page-content h2 em { font-style: italic; color: var(--green); }
+  .page-content p {
+    font-size: 16px; color: var(--text-mid);
+    line-height: 1.8; max-width: 560px;
+  }
+  .page-content code {
+    display: inline-block;
+    background: rgba(13,33,24,0.06);
+    border: 1px solid rgba(30,138,74,0.2);
+    color: var(--green);
+    font-size: 13px; padding: 4px 10px; border-radius: 2px;
+    font-family: monospace; margin-top: 4px;
+  }
+ 
+  /* ══════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════ */
+  footer {
+    background: var(--forest);
+    padding: 64px 5vw 28px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+ 
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+ 
+  .footer-brand p {
+    color: rgba(255,255,255,0.36);
+    font-size: 13.5px; line-height: 1.8;
+    margin-top: 16px; max-width: 260px;
+  }
+ 
+  .footer-col h4 {
+    color: rgba(255,255,255,0.88);
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.36);
+    font-size: 13.5px; text-decoration: none;
+    margin-bottom: 10px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--green-light); }
+ 
+  .footer-bottom {
+    padding-top: 26px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+    color: rgba(255,255,255,0.2); font-size: 12px;
+  }
+ 
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .page-content { padding: 60px 5vw; }
+  }
+}
+</style>
+  
 </body>
 </html>
