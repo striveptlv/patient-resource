@@ -24,88 +24,41 @@ body {
   padding-top: 70px; /* prevents nav overlap */
 }
 
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  background: rgba(13,33,24,0.97);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5vw;
-  z-index: 1000;
-}
+<nav>
+  <a href="https://striveptlv.com" class="nav-logo">
+    <img src="https://striveptlv.com/logo.png" alt="STRIVE PT Logo" class="logo-img">
+    <div>
+      <div class="logo-text">STRIVE</div>
+      <div class="logo-sub">Physical Therapy · Las Vegas</div>
+    </div>
+  </a>
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
+  <div class="nav-links">
+    <a href="https://striveptlv.com/">Home</a>
+    <a href="https://striveptlv.com/#services">Services</a>
+    <a href="https://striveptlv.com/#difference">Why 1-on-1</a>
+    <a href="https://striveptlv.com/#providers">Our Team</a>
+    <a href="https://striveptlv.com/#faq">FAQ</a>
+    <a href="https://striveptlv.com/#contact">Contact</a>
+    <a href="https://striveptlv.com/">Patient Resources</a>
+    <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
+  </div>
 
-.logo-img {
-  width: 44px;
-}
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-.logo-text {
-  font-family: 'Cormorant Garamond', serif;
-  color: white;
-  letter-spacing: 2px;
-}
-
-.logo-sub {
-  font-size: 10px;
-  color: var(--green-light);
-}
-
-.nav-links {
-  display: flex;
-  gap: 22px;
-}
-
-.nav-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.nav-book {
-  background: var(--green);
-  color: white !important;
-  padding: 8px 18px;
-}
-
-/* MOBILE MENU */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-.nav-toggle span {
-  width: 22px;
-  height: 2px;
-  background: white;
-  margin: 3px 0;
-}
-
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0; right: 0;
-  background: var(--forest);
-  flex-direction: column;
-  padding: 20px;
-}
-.mobile-menu.open {
-  display: flex;
-}
-.mobile-menu a {
-  color: white;
-  padding: 12px 0;
-  text-decoration: none;
-}
+  <div class="mobile-menu" id="mobileMenu">
+  <a href="https://striveptlv.com" onclick="toggleMenu()">Home</a>
+  <a href="https://striveptlv.com/#services" onclick="toggleMenu()">Services</a>
+  <a href="https://striveptlv.com/#difference" onclick="toggleMenu()">Why 1-on-1</a>
+  <a href="https://striveptlv.com/#providers" onclick="toggleMenu()">Our Team</a>
+  <a href="https://striveptlv.com/#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://striveptlv.com/#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://striveptlv.com/moneymanagement" onclick="toggleMenu()">Patient Resources</a>
+  <a href="https://striveptlv.com/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
+</div>
 
 /* PAGE CONTENT WRAPPER */
 .page-content {
