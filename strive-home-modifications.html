@@ -3,379 +3,464 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Modification Guide | STRIVE Physical Therapy · Las Vegas</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
+<title>STRIVE Online Banking &amp; Bill Pay Simulator </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
-  :root {
-    --dark:       #0e1712;
-    --dark-card:  #141f17;
-    --dark-line:  #1e2d22;
-    --green:      #1E432D;
-    --green-mid:  #2a5c3c;
-    --green-light:#3a7a52;
-    --green-pale: #eef5f0;
-    --white:      #ffffff;
-    --off-white:  #f7faf8;
-    --text-hero:  rgba(255,255,255,0.88);
-    --text-dim:   rgba(255,255,255,0.45);
-    --text-body:  #1c2a22;
-    --text-mid:   #4d6458;
-    --text-light: #8aaa96;
-    --border:     #d4e2da;
-    --border-dark:#1e2d22;
-  }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Bankig &amp; Bill Pay Simulator</title>
+    <style>
+      :root {
+        --ink: #183153;
+        --muted: #5f6f85;
+        --surface: rgba(255, 255, 255, 0.9);
+        --line: rgba(24, 49, 83, 0.12);
+        --shadow: 0 24px 48px rgba(24, 49, 83, 0.14);
+        --navy: #214a7a;
+        --navy-deep: #163456;
+        --sage: #5d8b6f;
+        --sage-deep: #41614e;
+        --gold: #d2a54b;
+        --gold-deep: #9a7428;
+        --cream: #f6f2e8;
+      }
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-  html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(33, 74, 122, 0.18), transparent 24%),
+          radial-gradient(circle at top right, rgba(210, 165, 75, 0.18), transparent 20%),
+          radial-gradient(circle at bottom left, rgba(93, 139, 111, 0.16), transparent 24%),
+          linear-gradient(180deg, #fbfcfe 0%, #edf3f8 54%, #e7eef5 100%);
+      }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--text-body);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+      a {
+        color: inherit;
+      }
 
-  /* ─── NAV ─── */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background: var(--dark);
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    border-bottom: 1px solid var(--border-dark);
-  }
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 34px 0 42px;
+      }
 
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-    text-decoration: none;
-  }
+      .hero,
+      .card,
+      .footer {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
 
-  .brand-box {
-    width: 34px;
-    height: 34px;
-    background: var(--green);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .brand-box span {
-    font-family: 'Lora', serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    letter-spacing: -0.3px;
-  }
+      .hero {
+        padding: 34px;
+      }
 
-  .brand-text strong {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    line-height: 1.1;
-  }
-  .brand-text small {
-    display: block;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.03em;
-    font-weight: 300;
-  }
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
 
-  .nav-link {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-dim);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.15s;
-  }
-  .nav-link:hover { color: white; }
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--dark);
-    padding: 80px 40px 88px;
-    text-align: center;
-  }
+      h1 {
+        margin-bottom: 12px;
+        font-size: clamp(2rem, 5vw, 3.6rem);
+        letter-spacing: -0.04em;
+      }
 
-  .hero-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 22px;
-  }
+      .lead {
+        max-width: 760px;
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
 
-  .hero h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.14;
-    max-width: 640px;
-    margin: 0 auto 20px;
-  }
+      .info-strip {
+        margin-top: 22px;
+        padding: 18px 20px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(246, 242, 232, 0.95), rgba(255, 255, 255, 0.72));
+        border: 1px solid rgba(210, 165, 75, 0.24);
+      }
 
-  .hero h1 em {
-    font-style: italic;
-    color: rgba(255,255,255,0.58);
-  }
+      .info-strip p {
+        margin: 0;
+        line-height: 1.7;
+      }
 
-  .hero-sub {
-    font-size: 16px;
-    color: var(--text-dim);
-    font-weight: 300;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.75;
-  }
+      .launch-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+        margin-top: 24px;
+      }
 
-  /* ─── GREEN BAND ─── */
-  .band {
-    background: var(--green);
-    padding: 24px 40px;
-    text-align: center;
-  }
-  .band p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.78);
-    font-weight: 300;
-    max-width: 640px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-  .band p strong {
-    color: white;
-    font-weight: 600;
-  }
+      .card {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+      }
 
-  /* ─── PAGE BODY ─── */
-  .page-body {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 72px 40px 96px;
-  }
+      .label {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #fff;
+      }
 
-  /* ─── ROOM SECTION ─── */
-  .room {
-    margin-bottom: 64px;
-  }
-  .room:last-child {
-    margin-bottom: 0;
-  }
+      .label.utility {
+        background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      }
 
-  .room-header {
-    display: flex;
-    align-items: baseline;
-    gap: 18px;
-    margin-bottom: 24px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--border);
-  }
+      .label.credit {
+        background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+      }
 
-  .room-header h2 {
-    font-family: 'Lora', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--text-body);
-    line-height: 1.2;
-  }
+      .label.bank {
+        background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+      }
 
-  .room-header h2 em {
-    font-style: italic;
-    color: var(--text-mid);
-  }
+      .card h2 {
+        margin: 16px 0 10px;
+        font-size: 1.45rem;
+      }
 
-  .room-count {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    white-space: nowrap;
-  }
+      .card p {
+        margin-bottom: 22px;
+        line-height: 1.65;
+        color: var(--muted);
+        flex: 1;
+      }
 
-  /* ─── MOD ITEMS ─── */
-  .mod-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
+      .launch-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 16px;
+        text-decoration: none;
+        font-weight: 800;
+        color: #fff;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
 
-  .mod-item {
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 16px;
-    align-items: start;
-    padding: 16px 0;
-    border-bottom: 1px solid #f0f4f1;
-  }
-  .mod-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .mod-item:first-child {
-    padding-top: 0;
-  }
+      .launch-link:hover {
+        transform: translateY(-1px);
+      }
 
-  .mod-num {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: var(--green-pale);
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
+      .launch-link.utility {
+        background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+        box-shadow: 0 14px 28px rgba(154, 116, 40, 0.22);
+      }
 
-  .mod-content {}
+      .launch-link.credit {
+        background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+        box-shadow: 0 14px 28px rgba(22, 52, 86, 0.24);
+      }
 
-  .mod-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-body);
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
+      .launch-link.bank {
+        background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+        box-shadow: 0 14px 28px rgba(65, 97, 78, 0.24);
+      }
 
-  .mod-desc {
-    font-size: 13.5px;
-    color: var(--text-mid);
-    line-height: 1.6;
-    font-weight: 300;
-  }
+      .footer {
+        margin-top: 24px;
+        padding: 20px 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
 
-  /* ─── NOTE BLOCK ─── */
-  .note {
-    background: var(--off-white);
-    border-left: 3px solid var(--green);
-    border-radius: 0 6px 6px 0;
-    padding: 18px 22px;
-    margin-top: 48px;
-  }
-  .note p {
-    font-size: 13.5px;
-    color: var(--text-mid);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-  .note p strong {
-    color: var(--text-body);
-    font-weight: 600;
-  }
+      @media (max-width: 900px) {
+        .launch-grid {
+          grid-template-columns: 1fr;
+        }
 
-  /* ─── DIVIDER ─── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 40px;
-  }
+        .page {
+          width: min(100% - 20px, 1120px);
+          padding-top: 20px;
+          padding-bottom: 28px;
+        }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--dark);
-    padding: 48px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-  }
+        .hero,
+        .card,
+        .footer {
+          border-radius: 24px;
+        }
 
-  .footer-brand {}
-  .footer-brand .fb-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .footer-brand p {
-    font-size: 13px;
-    color: var(--text-dim);
-    font-weight: 300;
-    line-height: 1.7;
-    max-width: 280px;
-  }
+        .hero,
+        .card {
+          padding: 22px;
+        }
+      }
+  
+      
+    </style>
+  </head>
 
-  .footer-links {}
-  .footer-links h4 {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 14px;
-  }
-  .footer-links ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .footer-links ul li a {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.15s;
-  }
-  .footer-links ul li a:hover { color: white; }
-
-  .footer-bottom {
-    background: var(--dark);
-    border-top: 1px solid var(--border-dark);
-    padding: 18px 40px;
-    text-align: center;
-  }
-  .footer-bottom p {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-weight: 300;
-  }
-
-  @media (max-width: 640px) {
-    nav { padding: 0 20px; }
-    .hero { padding: 60px 24px 68px; }
-    .band { padding: 22px 24px; }
-    .page-body { padding: 52px 24px 72px; }
-    footer { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
-    .footer-bottom { padding: 18px 24px; }
-    .divider { margin: 0 24px; }
-  }
-
-</style>
-</head>
-<body>
-
-<!-- NAV -->
+<!-- ══════════════════════════════════════════════════
+     NAV
+     All links point to the main STRIVE PT website.
+     Update the base URL below if the domain changes.
+════════════════════════════════════════════════════ -->
 <nav>
-  <a href="https://www.striveptlv.com" class="nav-brand">
-    <div class="brand-box"><span>S</span></div>
-    <div class="brand-text">
-      <strong>STRIVE</strong>
-      <small>Physical Therapy · Las Vegas</small>
+  <a href="https://striveptlv.com" class="nav-logo">
+    <img src="https://striveptlv.com/logo.png" alt="STRIVE PT Logo" class="logo-img">
+    <div>
+      <div class="logo-text">STRIVE</div>
+      <div class="logo-sub">Physical Therapy · Las Vegas</div>
     </div>
   </a>
-  <a href="https://www.striveptlv.com" class="nav-link">Back to main site</a>
+
+  <div class="nav-links">
+    <a href="https://striveptlv.com/">Home</a>
+    <a href="https://striveptlv.com/#services">Services</a>
+    <a href="https://striveptlv.com/#difference">Why 1-on-1</a>
+    <a href="https://striveptlv.com/#providers">Our Team</a>
+    <a href="https://striveptlv.com/#faq">FAQ</a>
+    <a href="https://striveptlv.com/#contact">Contact</a>
+    <a href="https://striveptlv.com/">Patient Resource</a>
+    <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
+  </div>
+
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+ 
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://striveptlv.com" onclick="toggleMenu()">Home</a>
+  <a href="https://striveptlv.com/#services" onclick="toggleMenu()">Services</a>
+  <a href="https://striveptlv.com/#difference" onclick="toggleMenu()">Why 1-on-1</a>
+  <a href="https://striveptlv.com/#providers" onclick="toggleMenu()">Our Team</a>
+  <a href="https://striveptlv.com/#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://striveptlv.com/#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://striveptlv.com/moneymanagement" onclick="toggleMenu()">Patient Resources</a>
+  <a href="https://striveptlv.com/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
+</div>
+ 
+<div class="page-content">
+    <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Money Management Task</p>
+        <h1>Online Banking &amp; Bill Pay Simulator</h1>
+        <p class="lead">
+          This program gives patients and clients a safe way to practice financial management,
+          app navigation, computer use, typing, multi-tasking, divided attention, and managing
+          distraction while completing realistic online tasks. These activities support improved
+          independence and safety with IADLs, especially for people recovering after a stroke or
+          brain injury.
+        </p>
+        <div class="info-strip">
+          <p>
+            Choose one of the practice environments below to work on logging in, locating account
+            details, switching attention between screens, following task steps, and completing
+            functional payment or banking activities.
+          </p>
+        </div>
+      </section>
+
+      <section class="launch-grid" aria-label="Practice program launch options">
+        <article class="card">
+          <span class="label utility">Mock Electric Bill</span>
+          <h2>Bill Pay Simulation</h2>
+          <p>
+            Opens the bill-pay practice homepage for utility payment tasks with realistic account
+            navigation and payment workflow practice.
+          </p>
+          <a class="launch-link utility" href="./Bill%20Pay/Bill%20Pay%20Homepage.html">Begin Bill Pay Simulation</a>
+        </article>
+
+        <article class="card">
+          <span class="label credit">Mock Credit Card</span>
+          <h2>Credit Card Account Simulation</h2>
+          <p>
+            Opens the Visa credit practice homepage to support card management tasks, online form
+            completion, and attention to details across multiple screens.
+          </p>
+          <a class="launch-link credit" href="./Visa/Visa%20Credit%20Homepage.html">Begin Credit Card Simulation</a>
+        </article>
+
+        <article class="card">
+          <span class="label bank">Mock Credit Union</span>
+          <h2>Online Bank Simulation</h2>
+          <p>
+            Opens the credit union banking simulation for personal account practice, navigation,
+            account review, and everyday money management skills.
+          </p>
+          <a class="launch-link bank" href="./Credit%20Union%20Account/Las%20Vegas%20School%20District%20Credit%20Union%20Homepage.html">Begin Online Banking Simulation</a>
+        </article>
+      </section>
+
+      <footer class="footer">Created by Strive Physical Therapy.<br>© 2026 STRIVE Physical Therapy · Las Vegas, NV · All rights reserved.</footer>
+    </main>
+  </body>
+
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f6fbf7;
+    color: #0d2118;
+    overflow-x: hidden;
+    /* Push body content below fixed nav */
+    padding-top: 70px;
+  }
+ 
+  /* ── DESIGN TOKENS ── */
+  :root {
+    --forest:      #0d2118;
+    --green:       #1e8a4a;
+    --green-light: #2faa5e;
+    --green-pale:  #e8f5ee;
+    --gold:        #c9973a;
+    --cream:       #f2f7f4;
+    --warm-white:  #f6fbf7;
+    --text-dark:   #0d2118;
+    --text-mid:    #2e5040;
+    --text-light:  #5a7a68;
+  }
+ 
+  /* ══════════════════════════════════════
+     NAV
+  ══════════════════════════════════════ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+  }
+ 
+  /* Logo */
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    text-decoration: none;
+  }
+  ./* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .logo-img {
+  width: 50px; height: 50px;
+  object-fit: contain; flex-shrink: 0;
+}
+.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
+.logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--green-light); }
+.nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-book:hover { background: var(--green-light) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
+  /* MOBILE MENU */
+  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: white;
+    line-height: 1.1; letter-spacing: 2px;
+  }
+  .logo-sub {
+    font-size: 9.5px; font-family: 'DM Sans', sans-serif;
+    color: var(--green-light); font-weight: 300;
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+ 
+  /* Desktop links */
+  .nav-links {
+    display: flex; align-items: center; gap: 26px;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72); text-decoration: none;
+    font-size: 13.5px; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-book {
+    background: var(--green) !important;
+    color: white !important;
+    padding: 9px 22px; border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-book:hover { background: var(--green-light) !important; }
+ 
+  /* Hamburger */
+  .nav-toggle {
+    display: none; flex-direction: column;
+    gap: 5px; cursor: pointer;
+  }
+  .nav-toggle span {
+    width: 22px; height: 2px;
+    background: white; border-radius: 2px;
+    transition: 0.3s;
+  }
+ 
+  /* ══════════════════════════════════════
+     MOBILE MENU
+  ══════════════════════════════════════ */
+  .mobile-menu {
+    display: none; flex-direction: column;
+    position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: var(--forest); z-index: 199;
+    padding: 32px 6vw;
+    overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 18px; font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mob-book {
+    background: var(--green); color: white !important;
+    text-align: center; border-radius: 2px;
+    padding: 15px !important; margin-top: 24px;
+    border: none !important; font-size: 16px;
+  }
 
 <!-- HERO -->
 <div class="hero">
