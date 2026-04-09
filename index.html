@@ -208,615 +208,389 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
-     PAGE CONTENT — replace everything between these
-     comments with your page-specific HTML
-═══════════════════════════════════════════════════════ -->
-<main class="page-content">
+     PAGE CONTENT — >
 
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caregiver & Community Resources | Las Vegas, NV</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Home Modification Guide | STRIVE Physical Therapy · Las Vegas</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+
   :root {
-    --blue: #1d4e89;
-    --blue-mid: #2e6db4;
-    --blue-pale: #eaf1fb;
-    --green: #1e6352;
-    --green-pale: #e6f2ee;
-    --slate: #3a4f5c;
-    --text: #1a2630;
-    --text-mid: #4a5e6c;
-    --text-light: #8a9daa;
-    --border: #d4dde6;
-    --bg: #f5f7fa;
-    --white: #ffffff;
+    --green:      #1E432D;
+    --green-mid:  #2a5c3c;
+    --green-pale: #eef5f0;
+    --white:      #ffffff;
+    --off-white:  #f7faf8;
+    --text-body:  #1c2a22;
+    --text-mid:   #4d6458;
+    --text-light: #8aaa96;
+    --border:     #d4e2da;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text-body);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── LAYOUT ── */
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-  .panel { display: none; padding: 48px 0 64px; animation: fadeIn 0.28s ease; }
-  .panel.active { display: block; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
-
-  /* ── TAB ROW ── */
-  .tab-row {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    padding: 24px 24px 0;
-    max-width: 980px;
+  /* ─── PAGE BODY ─── */
+  .page-body {
+    max-width: 820px;
     margin: 0 auto;
+    padding: 72px 40px 96px;
   }
-  .tab-btn {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 14px; font-weight: 700;
-    padding: 10px 26px;
-    border-radius: 4px;
-    border: 2px solid var(--border);
-    background: var(--white);
+
+  /* ─── ROOM SECTION ─── */
+  .room {
+    margin-bottom: 64px;
+  }
+  .room:last-child {
+    margin-bottom: 0;
+  }
+
+  .room-header {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .room-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-body);
+    line-height: 1.2;
+  }
+
+  .room-header h2 em {
+    font-style: italic;
     color: var(--text-mid);
-    cursor: pointer;
-    transition: all 0.18s;
-    letter-spacing: 0.01em;
-  }
-  .tab-btn:hover { border-color: var(--blue-mid); color: var(--blue); }
-  .tab-btn.active {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: white;
   }
 
-  /* ── SECTION LABELS ── */
-  .section-label {
+  .room-count {
     font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--text-light);
-    border-bottom: 2px solid var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    margin-top: 40px;
-  }
-  .section-label:first-child { margin-top: 0; }
-
-  /* ── CARD GRID ── */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 14px;
-    margin-bottom: 8px;
-  }
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-    margin-bottom: 8px;
+    white-space: nowrap;
   }
 
-  /* ── TIP CARD ── */
-  .tip-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 18px;
+  /* ─── MOD ITEMS ─── */
+  .mod-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
   }
-  .tip-card h3 {
-    font-size: 15px; font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
+
+  .mod-item {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f4f1;
   }
-  .tip-card .label {
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.07em;
-    color: var(--blue-mid);
-    margin-bottom: 12px;
-    display: block;
+  .mod-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
-  .tip-card ul {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 7px;
+  .mod-item:first-child {
+    padding-top: 0;
   }
-  .tip-card ul li {
-    font-size: 13.5px; color: var(--text-mid);
-    display: flex; gap: 8px; align-items: flex-start;
-    line-height: 1.5;
-  }
-  .tip-card ul li::before {
-    content: '—';
-    color: var(--border);
+
+  .mod-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--green-pale);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    font-weight: 700;
+    margin-top: 1px;
   }
 
-  /* ── BURNOUT TABLE ── */
-  .burnout-block {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 8px;
+  .mod-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-body);
+    margin-bottom: 4px;
+    line-height: 1.3;
   }
-  .burnout-head {
-    background: var(--slate);
-    color: white;
-    padding: 14px 20px;
-    font-size: 14px; font-weight: 700;
-  }
-  .burnout-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 560px) { .burnout-cols { grid-template-columns: 1fr; } }
-  .burnout-col { padding: 18px 20px; }
-  .burnout-col:first-child { border-right: 1px solid var(--border); }
-  .burnout-col h4 {
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em;
-    margin-bottom: 12px;
-  }
-  .burnout-col.warn h4 { color: #8b2020; }
-  .burnout-col.ok h4 { color: var(--green); }
-  .burnout-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .burnout-col ul li {
-    font-size: 13.5px; color: var(--text-mid);
-    display: flex; gap: 8px; align-items: flex-start; line-height: 1.5;
-  }
-  .burnout-col.warn ul li::before { content: '!'; color: #c0392b; font-weight: 700; flex-shrink: 0; }
-  .burnout-col.ok ul li::before { content: '+'; color: var(--green); font-weight: 700; flex-shrink: 0; }
 
-  /* ── ACCORDION ── */
-  .accordion { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
-  .acc-item {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .acc-q {
-    width: 100%; text-align: left;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 18px;
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 15px; font-weight: 700;
-    color: var(--text);
-    background: none; border: none;
-    cursor: pointer; gap: 12px;
-  }
-  .acc-q:hover { background: #f9fafb; }
-  .acc-arrow { font-size: 12px; color: var(--text-light); transition: transform 0.22s; flex-shrink: 0; }
-  .acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--blue-mid); }
-  .acc-a {
-    display: none;
-    padding: 14px 18px 16px;
-    font-size: 14px; color: var(--text-mid);
-    line-height: 1.65;
-    border-top: 1px solid var(--border);
-  }
-  .acc-item.open .acc-a { display: block; }
-  .acc-a ul { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
-  .acc-a ul li { display: flex; gap: 8px; font-size: 13.5px; }
-  .acc-a ul li::before { content: '—'; color: var(--border); font-weight: 700; flex-shrink: 0; }
-
-  /* ── HOTLINE GRID ── */
-  .hotline-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .hotline-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
-  .hotline-card .num { font-size: 17px; font-weight: 700; color: var(--blue); margin-bottom: 3px; }
-  .hotline-card p { font-size: 12.5px; color: var(--text-light); }
-
-  /* ── RESOURCE CARD ── */
-  .res-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--blue-mid);
-    border-radius: 8px;
-    padding: 18px 18px 16px;
-  }
-  .res-card.green { border-left-color: var(--green); }
-  .res-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
-  .res-tag {
-    display: inline-block;
-    font-size: 11px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.07em;
-    padding: 2px 8px; border-radius: 3px;
-    margin-bottom: 9px;
-  }
-  .tag-local { background: var(--blue-pale); color: var(--blue); }
-  .tag-state { background: #e8f4ee; color: var(--green); }
-  .tag-national { background: #f0ecf7; color: #5a3e8a; }
-  .tag-veterans { background: #fdf3e3; color: #8a5a1a; }
-  .res-card p { font-size: 13.5px; color: var(--text-mid); margin-bottom: 12px; line-height: 1.55; }
-  .res-details { display: flex; flex-direction: column; gap: 5px; }
-  .res-detail { font-size: 13px; color: var(--text-mid); display: flex; gap: 8px; }
-  .res-detail strong { color: var(--text); font-weight: 600; flex-shrink: 0; }
-  .res-detail a { color: var(--blue-mid); text-decoration: none; }
-  .res-detail a:hover { text-decoration: underline; }
-
-  /* ── CRISIS BAR ── */
-  .crisis-bar {
-    background: #2e1a3a;
-    color: white;
-    border-radius: 8px;
-    padding: 20px 22px;
-    display: flex; gap: 20px; align-items: center;
-    flex-wrap: wrap;
-    margin-top: 32px;
-  }
-  .crisis-bar .cn { font-family: 'Source Serif 4', serif; font-size: 36px; font-weight: 600; flex-shrink: 0; }
-  .crisis-bar h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-  .crisis-bar p { font-size: 13.5px; color: rgba(255,255,255,0.7); }
-
-  /* ── DISCLAIMER ── */
-  .disclaimer {
-    margin-top: 32px;
-    padding: 14px 16px;
-    background: #fffbec;
-    border: 1px solid #e8d88a;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #6b5210;
+  .mod-desc {
+    font-size: 13.5px;
+    color: var(--text-mid);
     line-height: 1.6;
+    font-weight: 300;
   }
 
-  @media (max-width: 560px) {
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  /* ─── NOTE BLOCK ─── */
+  .note {
+    background: var(--off-white);
+    border-left: 3px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    margin-top: 48px;
   }
+  .note p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .note p strong {
+    color: var(--text-body);
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .page-body { padding: 52px 24px 72px; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- TAB ROW -->
-<div class="tab-row">
-  <button class="tab-btn active" onclick="show('caregivers', this)">Caregiver Support</button>
-  <button class="tab-btn" onclick="show('community', this)">Las Vegas Resources</button>
-</div>
+<div class="page-body">
 
-<div class="wrap">
-
-  <!-- ════════════ CAREGIVER PANEL ════════════ -->
-  <div id="panel-caregivers" class="panel active">
-
-    <div class="section-label">Physical Care</div>
-    <div class="grid-2">
-      <div class="tip-card">
-        <h3>Safe lifting & transfers</h3>
-        <span class="label">Protect your body</span>
-        <ul>
-          <li>Always bend at the knees, never at the waist</li>
-          <li>Keep your loved one close to your body during transfers</li>
-          <li>Use a gait belt — never lift by arms or clothing</li>
-          <li>Ask your PT to teach transfer techniques specific to your situation</li>
-          <li>Use a transfer board or slide sheet for heavier transfers</li>
-        </ul>
-      </div>
-      <div class="tip-card">
-        <h3>Protect your sleep</h3>
-        <span class="label">A safety issue, not a luxury</span>
-        <ul>
-          <li>Sleep deprivation impairs judgment, patience, and physical ability</li>
-          <li>Ask a family member or respite worker to cover one night a week</li>
-          <li>Consider a medical alert device so you can rest between needs</li>
-          <li>Talk to your doctor if you are consistently getting under 6 hours</li>
-        </ul>
-      </div>
-      <div class="tip-card">
-        <h3>Keep your own health appointments</h3>
-        <span class="label">Your health matters too</span>
-        <ul>
-          <li>Caregivers frequently delay or skip their own medical care</li>
-          <li>Schedule primary care, dental, and specialist visits in advance</li>
-          <li>Tell your doctor you are a full-time caregiver — it is clinically relevant</li>
-          <li>Arrange coverage so you can attend without guilt or interruption</li>
-        </ul>
-      </div>
-      <div class="tip-card">
-        <h3>Skin & pressure sore prevention</h3>
-        <span class="label">Critical for wheelchair users</span>
-        <ul>
-          <li>Reposition every 15–30 min in a wheelchair, every 2 hours in bed</li>
-          <li>Keep skin clean and dry — moisture causes breakdown</li>
-          <li>Inspect skin daily over bony areas: tailbone, heels, hips, shoulders</li>
-          <li>Use a pressure-relief cushion — ask your PT which type is right</li>
-          <li>Report any redness, blistering, or open skin to your care team immediately</li>
-        </ul>
-      </div>
+  <!-- BATHROOM -->
+  <div class="room">
+    <div class="room-header">
+      <h2>Bathroom <em>Modifications</em></h2>
+      <span class="room-count"></span>
     </div>
+    <div class="mod-list">
 
-    <div class="section-label">Emotional Health</div>
-    <div class="grid-2">
-      <div class="tip-card">
-        <h3>What you may be feeling</h3>
-        <span class="label">You are not alone in this</span>
-        <ul>
-          <li><strong>Grief</strong> — mourning who your loved one was, even while they are still here</li>
-          <li><strong>Guilt</strong> — feeling bad for needing breaks or feeling frustrated</li>
-          <li><strong>Resentment</strong> — normal and human; does not mean you love them less</li>
-          <li><strong>Isolation</strong> — losing your routines and social life to caregiving</li>
-          <li><strong>Fear</strong> — about the future, finances, or what happens if you cannot continue</li>
-        </ul>
+      <div class="mod-item">
+        <div class="mod-num">1</div>
+        <div class="mod-content">
+          <div class="mod-title">Install grab bars at the toilet and shower</div>
+          <div class="mod-desc">Mount securely into wall studs — not just drywall. Place one bar beside the toilet and at least one inside the shower or tub. These are the highest-impact modifications you can make and significantly reduce fall risk during the most vulnerable bathroom transitions.</div>
+        </div>
       </div>
-      <div class="tip-card">
-        <h3>Simple daily coping strategies</h3>
-        <span class="label">Evidence-based tools</span>
-        <ul>
-          <li><strong>Box breathing:</strong> Inhale 4 sec, hold 4, exhale 4, hold 4. Repeat 3–4 times</li>
-          <li><strong>Name one small win daily</strong> — write it down. It reframes perspective over time</li>
-          <li>Protect at least one small pleasure each day: coffee, a walk, a phone call</li>
-          <li>Be specific when asking for help — "Can you bring dinner Thursday?" works better than general requests</li>
-          <li>Limit screens and news in the hour before sleep</li>
-        </ul>
+
+      <div class="mod-item">
+        <div class="mod-num">2</div>
+        <div class="mod-content">
+          <div class="mod-title">Non-slip mats inside and outside the tub or shower</div>
+          <div class="mod-desc">Place a textured non-slip mat on the floor of the tub or shower, and a second mat on the bathroom floor immediately outside. Wet feet on a smooth surface is one of the most common causes of bathroom falls.</div>
+        </div>
       </div>
+
+      <div class="mod-item">
+        <div class="mod-num">3</div>
+        <div class="mod-content">
+          <div class="mod-title">Shower chair or tub bench</div>
+          <div class="mod-desc">Allows bathing in a seated position, eliminating the need to stand for extended periods and reducing fall risk. Essential for patients with weakness, fatigue, or balance deficits. Ask your therapist which style — transfer bench, shower chair, or fold-down seat — is best for your setup.</div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <div class="mod-num">4</div>
+        <div class="mod-content">
+          <div class="mod-title">Handheld showerhead</div>
+          <div class="mod-desc">Enables bathing from a seated position and allows caregivers to assist more easily. Adjustable-height wall brackets add additional flexibility. An inexpensive and highly effective modification.</div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <div class="mod-num">5</div>
+        <div class="mod-content">
+          <div class="mod-title">Raised toilet seat</div>
+          <div class="mod-desc">Reduces the depth of sit-to-stand, which is one of the most physically demanding transfers in daily life. Particularly helpful for patients with hip or knee weakness following neurological injury. Models with armrests provide additional support.</div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="section-label">Recognizing & Preventing Burnout</div>
-    <div class="burnout-block">
-      <div class="burnout-head">Caregiver burnout is common — and treatable</div>
-      <div class="burnout-cols">
-        <div class="burnout-col warn">
-          <h4>Warning Signs</h4>
-          <ul>
-            <li>Constant exhaustion that sleep does not fix</li>
-            <li>Feeling hopeless, trapped, or resentful most days</li>
-            <li>Getting sick more often than usual</li>
-            <li>Withdrawing from friends and activities</li>
-            <li>Increased reliance on alcohol or other substances</li>
-            <li>Snapping at your loved one or other family members</li>
-            <li>Feeling like nothing you do is ever enough</li>
-          </ul>
-        </div>
-        <div class="burnout-col ok">
-          <h4>What Actually Helps</h4>
-          <ul>
-            <li>Scheduled respite, even a few hours per week</li>
-            <li>Joining a caregiver support group, in person or online</li>
-            <li>Seeing a therapist briefly — many accept insurance</li>
-            <li>Being honest with your care team about how you are doing</li>
-            <li>Defining clearly what you can and cannot take on</li>
-            <li>Taking at least one full day off per month</li>
-            <li>Calling Nevada 2-1-1 to find local respite services</li>
-          </ul>
-        </div>
-      </div>
+  <!-- BEDROOM -->
+  <div class="room">
+    <div class="room-header">
+      <h2>Bedroom <em>Modifications</em></h2>
+      <span class="room-count"></span>
     </div>
+    <div class="mod-list">
 
-    <div class="section-label">Practical Questions</div>
-    <div class="accordion">
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">How do I manage medication schedules? <span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-a">
-          Use a weekly pill organizer and set phone alarms labeled with the medication name. Keep an up-to-date list — name, dose, time, and prescribing doctor — in your wallet and on the fridge. Bring it to every appointment. Apps like Medisafe send reminders and flag interactions.
+      <div class="mod-item">
+        <div class="mod-num">1</div>
+        <div class="mod-content">
+          <div class="mod-title">Adjust bed height</div>
+          <div class="mod-desc">When seated at the edge of the bed, both feet should rest flat on the floor with hips and knees at roughly 90 degrees. A bed that is too low makes standing significantly harder; too high creates fall risk. Bed risers or a lower frame can adjust height as needed.</div>
         </div>
       </div>
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">How do I handle behavioral changes after stroke? <span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-a">
-          Emotional and behavioral changes are common after stroke due to brain injury — they are not deliberate.
-          <ul>
-            <li>Stay calm; speak slowly in short, clear sentences</li>
-            <li>Reduce background noise during difficult moments</li>
-            <li>Pseudobulbar affect — uncontrollable laughing or crying — affects up to 20% of stroke survivors and is treatable. Ask a doctor</li>
-            <li>Consistent daily routines reduce anxiety and outbursts significantly</li>
-          </ul>
+
+      <div class="mod-item">
+        <div class="mod-num">2</div>
+        <div class="mod-content">
+          <div class="mod-title">Bed rail or half-rail</div>
+          <div class="mod-desc">Provides a stable handhold for repositioning in bed, rolling to the edge, and pushing up to sitting — all movements that become effortful after stroke or spinal cord injury. Half-rails attach to the bed frame and do not restrict full movement the way full side rails do.</div>
         </div>
       </div>
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">How do I stay organized with appointments and records? <span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-a">
-          Keep one binder or folder containing: diagnosis summary, medication list, insurance cards, advance directives, and the PT home exercise program. Take notes at every appointment. Maintain a brief daily log of mood, sleep, bowel/bladder, and any falls. Request patient portal access for test results and visit notes.
+
+      <div class="mod-item">
+        <div class="mod-num">3</div>
+        <div class="mod-content">
+          <div class="mod-title">Remove or secure all loose rugs</div>
+          <div class="mod-desc">Loose rugs are one of the leading causes of falls at home. Remove them entirely, or use double-sided non-slip tape and non-slip rug pads to secure all edges firmly to the floor. This applies to all rooms, not just the bedroom.</div>
         </div>
       </div>
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">What financial assistance options are available in Nevada? <span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-a">
-          <ul>
-            <li><strong>Nevada Medicaid HCBS Waiver</strong> — may cover attendant care, respite, home modifications, and meals for physically disabled adults</li>
-            <li><strong>ADSD Respite Vouchers</strong> — quarterly vouchers for in-home respite through Nevada DHHS</li>
-            <li><strong>FreedomCare</strong> — Medicaid-enrolled Nevadans may qualify to be paid to care for a family member</li>
-            <li><strong>VA Aid & Attendance</strong> — additional pension for veterans needing in-home care</li>
-            <li><strong>Nevada 2-1-1</strong> — call 211 for emergency financial, utility, and housing assistance</li>
-          </ul>
+
+      <div class="mod-item">
+        <div class="mod-num">4</div>
+        <div class="mod-content">
+          <div class="mod-title">Nightlight or motion-sensor lighting</div>
+          <div class="mod-desc">Nighttime bathroom trips in the dark significantly increase fall risk — especially with impaired balance or sensation. Place nightlights or motion-activated lights along the path from the bed to the bathroom. This simple change has a meaningful impact on nighttime safety.</div>
         </div>
       </div>
+
+      <div class="mod-item">
+        <div class="mod-num">5</div>
+        <div class="mod-content">
+          <div class="mod-title">Keep essentials within reach of the bed</div>
+          <div class="mod-desc">Phone, medications, water, and a call device should all be accessible without requiring the patient to stand or reach. A bedside caddy or small table at the right height prevents unnecessary and risky nighttime movements.</div>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <div class="mod-num">6</div>
+        <div class="mod-content">
+          <div class="mod-title">Clear an unobstructed path to the bathroom</div>
+          <div class="mod-desc">Remove furniture, cords, clothing, and any other objects from the path between the bed and bathroom. If a mobility aid such as a walker or wheelchair is used, ensure there is adequate space to navigate the route safely, especially in the dark.</div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="disclaimer">
-      This guide is for general education only. It does not replace individualized medical, legal, or financial advice. Always consult your care team with specific questions.
+  <!-- HALLWAYS -->
+  <div class="room">
+    <div class="room-header">
+      <h2>Hallways & <em>Entrances</em></h2>
+      <span class="room-count"></span>
     </div>
+    <div class="mod-list">
 
-  </div><!-- /caregivers -->
+      <div class="mod-item">
+        <div class="mod-num">1</div>
+        <div class="mod-content">
+          <div class="mod-title">Improve lighting throughout all hallways</div>
+          <div class="mod-desc">Every hallway and transition area should be well lit. Add motion-sensor lights at the top and bottom of staircases and in hallways traveled at night. Poor lighting is a modifiable risk factor that is frequently overlooked.</div>
+        </div>
+      </div>
 
+      <div class="mod-item">
+        <div class="mod-num">2</div>
+        <div class="mod-content">
+          <div class="mod-title">Install a ramp at any door with a step</div>
+          <div class="mod-desc">Even a single step is a significant barrier for patients using walkers, wheelchairs, or with foot drop. A ramp with a 1:12 slope ratio — one inch of rise for every 12 inches of length — is the standard for safe, manageable access. Portable ramps are available for rentals or temporary use.</div>
+        </div>
+      </div>
 
-  <!-- ════════════ COMMUNITY PANEL ════════════ -->
-  <div id="panel-community" class="panel">
+      <div class="mod-item">
+        <div class="mod-num">3</div>
+        <div class="mod-content">
+          <div class="mod-title">Handrails on both sides of all staircases</div>
+          <div class="mod-desc">After stroke, patients often have significantly more strength on one side than the other. A single handrail only assists descent or ascent in one direction. Bilateral handrails allow patients to use their stronger side in either direction and provide critical support if balance is lost.</div>
+        </div>
+      </div>
 
-    <div class="section-label">Quick Contacts</div>
-    <div class="grid-3">
-      <div class="hotline-card">
-        <h4>Nevada 2-1-1</h4>
-        <div class="num">Dial 2-1-1</div>
-        <p>Free local referrals — 24/7</p>
+      <div class="mod-item">
+        <div class="mod-num">4</div>
+        <div class="mod-content">
+          <div class="mod-title">Widen doorways if wheelchair access is needed</div>
+          <div class="mod-desc">Standard doorways are often 28–30 inches — too narrow for most wheelchairs, which require at least 32 inches and ideally 36 inches of clear width. Offset hinges can add 2 inches of clearance without structural work. Full widening may require a contractor but is often covered under disability modification programs.</div>
+        </div>
       </div>
-      <div class="hotline-card">
-        <h4>Las Vegas Senior Services</h4>
-        <div class="num">702-229-6690</div>
-        <p>City of Las Vegas aging programs</p>
+
+      <div class="mod-item">
+        <div class="mod-num">5</div>
+        <div class="mod-content">
+          <div class="mod-title">Replace round door knobs with lever handles</div>
+          <div class="mod-desc">Lever-style door handles require significantly less grip strength and fine motor control than round knobs — an important consideration for patients with hand weakness or spasticity following stroke or cervical spinal cord injury. This is a low-cost, high-impact change.</div>
+        </div>
       </div>
-      <div class="hotline-card">
-        <h4>NV Aging & Disability (ADSD)</h4>
-        <div class="num">702-486-3545</div>
-        <p>State benefits & caregiver programs</p>
-      </div>
-      <div class="hotline-card">
-        <h4>Crisis Call Center</h4>
-        <div class="num">1-800-992-5757</div>
-        <p>Nevada mental health crisis line</p>
-      </div>
-      <div class="hotline-card">
-        <h4>Adult Protective Services</h4>
-        <div class="num">702-486-6930</div>
-        <p>Report abuse or neglect of adults</p>
-      </div>
-      <div class="hotline-card">
-        <h4>988 Lifeline</h4>
-        <div class="num">Call or text 988</div>
-        <p>Suicide & crisis support, 24/7</p>
-      </div>
+
     </div>
+  </div>
 
-    <div class="section-label">Local Las Vegas Organizations</div>
-    <div class="grid-2">
-      <div class="res-card">
-        <h3>Nevada Care Connection</h3>
-        <span class="res-tag tag-state">State — Free</span>
-        <p>Resource navigators help caregivers and people with disabilities connect with transportation, home care, respite, meals, and other local services — one-on-one, at no cost.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> Dial 2-1-1 to connect</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.nevadacareconnection.org" target="_blank">nevadacareconnection.org</a></div>
-          <div class="res-detail"><strong>Hours:</strong> Mon–Thu 9 AM–5 PM, Fri 9 AM–4 PM</div>
-        </div>
-      </div>
-      <div class="res-card">
-        <h3>Nevada Senior Services</h3>
-        <span class="res-tag tag-local">Local — Sliding Scale</span>
-        <p>Non-medical home care, respite care, caregiver training, adult day programs, and home safety modifications for seniors and adults with disabilities in Clark County.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.nevadaseniorservices.org" target="_blank">nevadaseniorservices.org</a></div>
-          <div class="res-detail"><strong>Note:</strong> Adult day recreation centers available with low caregiver-to-client ratios</div>
-        </div>
-      </div>
-      <div class="res-card">
-        <h3>Clark County Senior Services</h3>
-        <span class="res-tag tag-local">Local — Multiple Services</span>
-        <p>County-level services including health programs, legal assistance, housing support, and senior center programming for older adults and people with disabilities.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 702-455-7051</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.clarkcountynv.gov" target="_blank">clarkcountynv.gov</a></div>
-        </div>
-      </div>
-      <div class="res-card">
-        <h3>Nevada Disability Advocacy & Law Center</h3>
-        <span class="res-tag tag-local">Local — Free Legal Aid</span>
-        <p>Free legal advocacy for people with disabilities in Nevada. Covers housing, employment, benefits access, and civil rights protections.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 702-257-8150</div>
-          <div class="res-detail"><strong>Address:</strong> 6039 Eldora Ave, Suite C-3, Las Vegas, NV 89146</div>
-        </div>
-      </div>
+  <!-- KITCHEN -->
+  <div class="room">
+    <div class="room-header">
+      <h2>Kitchen <em>Modifications</em></h2>
+      <span class="room-count"></span>
     </div>
+    <div class="mod-list">
 
-    <div class="section-label">State & National Resources</div>
-    <div class="grid-2">
-      <div class="res-card green">
-        <h3>NV Aging & Disability Services Division</h3>
-        <span class="res-tag tag-state">State — Free</span>
-        <p>Nevada's primary state agency for disability and aging. Connects families with Medicaid waivers, respite vouchers, adult protective services, and long-term care planning.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 702-486-3545 (Las Vegas)</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://adsd.nv.gov" target="_blank">adsd.nv.gov</a></div>
+      <div class="mod-item">
+        <div class="mod-num">1</div>
+        <div class="mod-content">
+          <div class="mod-title">Store frequently used items at counter height</div>
+          <div class="mod-desc">Reaching overhead while standing is one of the more destabilizing movements in daily life, particularly for patients with balance impairments. Reorganize so that everyday dishes, glasses, food, and appliances are stored between waist and shoulder height — no reaching up or bending low required.</div>
         </div>
       </div>
-      <div class="res-card green">
-        <h3>American Stroke Association</h3>
-        <span class="res-tag tag-national">National — Free</span>
-        <p>Educational resources, support group finder, stroke risk tools, and a helpline staffed by stroke nurses and social workers.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 1-888-478-7653</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.stroke.org" target="_blank">stroke.org</a></div>
+
+      <div class="mod-item">
+        <div class="mod-num">2</div>
+        <div class="mod-content">
+          <div class="mod-title">Add pull-out shelves or a lazy Susan to lower cabinets</div>
+          <div class="mod-desc">Deep lower cabinets require awkward bending and reaching that challenges balance. Pull-out shelves bring items to the front; a lazy Susan allows rotation so nothing is stored out of easy reach. Both are inexpensive modifications available at most hardware stores.</div>
         </div>
       </div>
-      <div class="res-card green">
-        <h3>Christopher & Dana Reeve Foundation</h3>
-        <span class="res-tag tag-national">National — Free</span>
-        <p>Free paralysis resource guide, caregiver support, virtual peer mentoring, and support groups for spinal cord injury survivors and families.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 1-800-225-0292</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.christopherreeve.org" target="_blank">christopherreeve.org</a></div>
+
+      <div class="mod-item">
+        <div class="mod-num">3</div>
+        <div class="mod-content">
+          <div class="mod-title">Replace faucets and cabinet hardware with lever styles</div>
+          <div class="mod-desc">Lever-style faucets require only a downward push rather than a grip-and-twist motion. Loop or D-ring cabinet pulls are easier than standard knobs for patients with limited hand strength or coordination. These changes are particularly helpful for patients with hemiplegia or cervical SCI.</div>
         </div>
       </div>
-      <div class="res-card green">
-        <h3>Family Caregiver Alliance</h3>
-        <span class="res-tag tag-national">National — Free</span>
-        <p>Comprehensive guides for family caregivers, legal and financial planning tools, and a state-by-state service locator (FCA CareNav) searchable by zip code.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.caregiver.org" target="_blank">caregiver.org</a></div>
+
+      <div class="mod-item">
+        <div class="mod-num">4</div>
+        <div class="mod-content">
+          <div class="mod-title">Place a non-slip mat in front of the sink</div>
+          <div class="mod-desc">Standing at the sink for tasks like washing dishes or brushing teeth can be fatiguing and destabilizing. A non-slip mat provides both traction underfoot and a tactile cue about position — helpful for patients with proprioceptive deficits following neurological injury.</div>
         </div>
       </div>
-      <div class="res-card green">
-        <h3>Caregiver Action Network</h3>
-        <span class="res-tag tag-national">National — Free</span>
-        <p>Peer support, online communities, and education specifically for family caregivers. Helpline staffed by trained caregiver advisors.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 1-855-227-3640</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.caregiveraction.org" target="_blank">caregiveraction.org</a></div>
-        </div>
-      </div>
-      <div class="res-card green">
-        <h3>United Spinal Association</h3>
-        <span class="res-tag tag-national">National — Free</span>
-        <p>Peer mentoring, spinal cord injury support groups, advocacy, and a free resource library for survivors and their families.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 1-800-962-9629</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.spinalcord.org" target="_blank">spinalcord.org</a></div>
-        </div>
-      </div>
-      <div class="res-card green">
-        <h3>VA Caregiver Support Program</h3>
-        <span class="res-tag tag-veterans">Veterans — Free</span>
-        <p>For caregivers of veterans. Offers respite care, training, a monthly caregiver stipend, and mental health services through the VA system.</p>
-        <div class="res-details">
-          <div class="res-detail"><strong>Phone:</strong> 1-855-260-3274</div>
-          <div class="res-detail"><strong>Web:</strong> <a href="https://www.caregiver.va.gov" target="_blank">caregiver.va.gov</a></div>
-        </div>
-      </div>
+
     </div>
+  </div>
 
-    <div class="crisis-bar">
-      <div class="cn">988</div>
-      <div>
-        <h4>Suicide & Crisis Lifeline — call or text 988</h4>
-        <p>Available 24 hours a day, 7 days a week. For patients, caregivers, or anyone in emotional crisis. You do not have to be suicidal to call — overwhelm and hopelessness count too.</p>
-      </div>
-    </div>
+  <!-- NOTE -->
+  <div class="note">
+    <p><strong>A note from STRIVE Physical Therapy —</strong> This guide covers the most common and impactful home modifications for stroke and spinal cord injury recovery. Every patient's home and functional level is different. Our therapists provide individualized home safety evaluations as part of our in-home PT services throughout the Las Vegas valley — including Skye Canyon, Centennial Hills, and Summerlin. <a href="https://www.striveptlv.com/#contact" style="color: var(--green); text-decoration: none; font-weight: 500;">Contact us</a> to learn more.</p>
+  </div>
 
-    <div class="disclaimer">
-      Resource information current as of 2025. Phone numbers and hours may change — verify directly with each organization. This guide does not constitute medical, legal, or financial advice.
-    </div>
+</div><!-- /page-body -->
 
-  </div><!-- /community -->
-
-</div><!-- /wrap -->
-
-<script>
-  function show(name, btn) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('panel-' + name).classList.add('active');
-    btn.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  function toggleAcc(btn) {
-    btn.parentElement.classList.toggle('open');
-  }
-</script>
 </body>
 </html>
+
+
+   <!--  END OF PAGE CONTENT--
+═══════════════════════════════════════════════════════ -->
+<main class="page-content">
+
+  <!-- ✏️ YOUR PAGE CONTENT GOES HERE -->
 
 </main>
 <!-- ═══════════════════════════════════════════════════════
