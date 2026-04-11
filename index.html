@@ -164,9 +164,10 @@
     .hero {
       background-color: var(--forest);
       background-image:
-        radial-gradient(circle at 60% 40%, rgba(30,138,74,0.10) 0%, transparent 55%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='1.5' cy='1.5' r='1.5' fill='rgba(255,255,255,0.055)'/%3E%3C/svg%3E");
-      background-size: auto, 28px 28px;
+        radial-gradient(ellipse at 70% 50%, rgba(30,138,74,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(30,138,74,0.08) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1'%3E%3C!-- leaf 1 --%3E%3Cpath d='M20 80 C20 40 60 30 60 10 C60 30 100 40 100 80 C80 60 40 60 20 80Z' /%3E%3Cpath d='M60 10 L60 80' stroke-width='0.7'/%3E%3C!-- small leaf 2 --%3E%3Cpath d='M0 50 C0 30 18 24 18 10 C18 24 36 30 36 50 C26 40 10 40 0 50Z' /%3E%3Cpath d='M18 10 L18 50' stroke-width='0.7'/%3E%3C!-- stem curl --%3E%3Cpath d='M90 110 C90 95 105 88 110 75' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M110 75 C112 65 108 58 115 50' stroke-width='0.9' stroke-linecap='round'/%3E%3C!-- small petal cluster --%3E%3Cellipse cx='10' cy='108' rx='7' ry='4' transform='rotate(-30 10 108)'/%3E%3Cellipse cx='22' cy='112' rx='7' ry='4' transform='rotate(15 22 112)'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: auto, auto, 120px 120px;
       padding: 72px 5vw 80px;
       text-align: center;
       position: relative;
@@ -190,6 +191,15 @@
       font-size: 16px; color: rgba(255,255,255,0.45);
       font-weight: 300; max-width: 500px;
       margin: 0 auto; line-height: 1.75;
+    }
+    .hero-botanical {
+      position: absolute; top: 0; width: 200px; height: 100%;
+      pointer-events: none; overflow: visible;
+    }
+    .hero-botanical--left { left: 0; }
+    .hero-botanical--right { right: 0; transform: scaleX(-1); }
+    @media (max-width: 700px) {
+      .hero-botanical { width: 120px; opacity: 0.7; }
     }
 
     /* ── GREEN BAND ── */
@@ -380,6 +390,34 @@
 
   <!-- HERO -->
   <div class="hero">
+    <svg class="hero-botanical hero-botanical--left" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,0.07)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 340 C98 290 92 260 88 220 C84 180 90 150 85 110 C80 70 65 40 70 10" stroke-width="1.4"/>
+        <path d="M88 220 C60 210 30 190 15 160 C40 165 65 178 88 220Z" stroke-width="1"/>
+        <path d="M88 220 C55 208 15 160 15 160" stroke-width="0.6"/>
+        <path d="M90 180 C118 165 148 142 158 108 C132 120 108 142 90 180Z" stroke-width="1"/>
+        <path d="M90 180 C130 155 158 108 158 108" stroke-width="0.6"/>
+        <path d="M87 140 C62 128 40 108 32 80 C55 92 74 112 87 140Z" stroke-width="1"/>
+        <path d="M87 140 C55 110 32 80 32 80" stroke-width="0.6"/>
+        <path d="M85 100 C104 86 118 65 116 42 C100 58 90 78 85 100Z" stroke-width="0.9"/>
+        <path d="M85 100 C105 72 116 42 116 42" stroke-width="0.5"/>
+        <path d="M72 30 C58 18 50 8 52 0" stroke-width="0.8"/>
+        <path d="M72 30 C82 16 86 6 82 0" stroke-width="0.8"/>
+      </g>
+    </svg>
+    <svg class="hero-botanical hero-botanical--right" viewBox="0 0 180 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,0.06)" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 300 C35 255 50 225 65 190 C80 155 75 120 90 90 C105 60 130 38 120 5" stroke-width="1.3"/>
+        <path d="M65 190 C90 175 118 158 130 128 C106 138 82 158 65 190Z" stroke-width="0.9"/>
+        <path d="M65 190 C100 165 130 128 130 128" stroke-width="0.55"/>
+        <path d="M72 148 C48 132 28 110 24 82 C46 96 62 118 72 148Z" stroke-width="0.9"/>
+        <path d="M72 148 C42 114 24 82 24 82" stroke-width="0.55"/>
+        <path d="M88 100 C110 84 126 62 122 36 C104 52 92 74 88 100Z" stroke-width="0.85"/>
+        <path d="M88 100 C116 68 122 36 122 36" stroke-width="0.5"/>
+        <path d="M112 20 C100 10 96 2 100 0" stroke-width="0.7"/>
+        <path d="M112 20 C124 12 128 4 122 0" stroke-width="0.7"/>
+      </g>
+    </svg>
     <p class="hero-eyebrow">Patient Resource &nbsp;·&nbsp; STRIVE Physical Therapy</p>
     <h1>Home Modification <em>Guide</em></h1>
     <p class="hero-sub">Practical changes to make your home safer and more accessible after a stroke or spinal cord injury.</p>
